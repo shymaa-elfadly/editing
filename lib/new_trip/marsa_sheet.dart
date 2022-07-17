@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:updatte/new_trip/new_trip.dart';
 
 class MSheet extends StatefulWidget {
   const MSheet({Key? key}) : super(key: key);
@@ -9,6 +10,7 @@ class MSheet extends StatefulWidget {
 }
 
 class _MSheetState extends State<MSheet> {
+  //var marca = TextEditingController();
   String? place;
   String? address;
   String? distance;
@@ -104,7 +106,7 @@ class _MSheetState extends State<MSheet> {
               child: Container(
                 width: double.infinity,
                 height: double.maxFinite,
-                child: ListView.separated(itemBuilder: (context, index) =>marsa(list_place_search[index],list_address_search[index],list_distance_search[index]), separatorBuilder: (context,index)=>SizedBox(height: 15,), itemCount: list_place_search.length),
+                child: ListView.separated(itemBuilder: (context, index) =>marsa(index,list_place_search[index],list_address_search[index],list_distance_search[index]), separatorBuilder: (context,index)=>SizedBox(height: 15,), itemCount: list_place_search.length),
               ),
             )
             // Row(
@@ -137,29 +139,36 @@ class _MSheetState extends State<MSheet> {
     );
   }
 
-  Row marsa(String place, String address , String distance) {
-    return Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      SizedBox(
-                          height: 48,
-                          width: 48,
-                          child: Image.asset('assets/images/Group 39809.png')),
-                      const SizedBox(width: 10,),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children:  [
-                          Text('$place',style: TextStyle(color: Color(0xff303b7d),fontSize: 20),),
-                          Text('$address',style: TextStyle(color: Color(0xff303b7d),),)
-                        ],
-                      ),
-                    ],
-                  ),
+  GestureDetector marsa(int index ,String place, String address , String distance) {
+    return GestureDetector(
+      onTap: (){
+        marca.text=list_place_search[index];
+        Navigator.pop(context);
 
-                  Directionality(textDirection: TextDirection.ltr,
-                      child: Text('$distance',style: TextStyle(color: Color(0xff303b7d),),))
-                ],);
+      },
+      child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        SizedBox(
+                            height: 48,
+                            width: 48,
+                            child: Image.asset('assets/images/Group 39809.png')),
+                        const SizedBox(width: 10,),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children:  [
+                            Text('$place',style: TextStyle(color: Color(0xff303b7d),fontSize: 20),),
+                            Text('$address',style: TextStyle(color: Color(0xff303b7d),),)
+                          ],
+                        ),
+                      ],
+                    ),
+
+                    Directionality(textDirection: TextDirection.ltr,
+                        child: Text('$distance',style: TextStyle(color: Color(0xff303b7d),),))
+                  ],),
+    );
   }
 }

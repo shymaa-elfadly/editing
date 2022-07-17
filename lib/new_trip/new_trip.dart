@@ -5,9 +5,18 @@ import 'package:updatte/new_trip/screen_20_f2.dart';
 import 'package:updatte/new_trip/screen_21_f2.dart';
 
 import 'marsa_sheet.dart';
+var marca = TextEditingController();
+var city = TextEditingController();
+var section = TextEditingController();
 
-class NewTrip extends StatelessWidget {
+class NewTrip extends StatefulWidget {
   const NewTrip({Key? key}) : super(key: key);
+
+  @override
+  State<NewTrip> createState() => _NewTripState();
+}
+
+class _NewTripState extends State<NewTrip> {
 
   @override
   Widget build(BuildContext context) {
@@ -119,22 +128,28 @@ class NewTrip extends StatelessWidget {
                           Container(
                             width: double.infinity,
                             height: 38,
-                            padding: const EdgeInsets.all(10),
+                            padding: const EdgeInsets.only(bottom: 10),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
                               color: const Color(0xfff1f1f1),
                             ),
-                            child: const TextField(
-                              style: TextStyle(color: Color(0xff303b7d)),
-                              decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  suffixIcon: Icon(
-                                    Icons.keyboard_arrow_down_outlined,
-                                    size: 30,
-                                    color: Color(0xff303b7d),
-                                  )),
-                            ),
-                          ),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: TextFormField(
+                                    enabled: false,
+                                    decoration: const InputDecoration(
+                                      border: InputBorder.none,
+                                    ),
+                                    controller: section,
+                                  ),
+                                ),
+                                IconButton(icon: const Icon(Icons.keyboard_arrow_down_outlined), onPressed: (){},),
+
+                              ],
+                          ),),
+
+
                           const SizedBox(
                             height: 20,
                           ),
@@ -169,8 +184,9 @@ class NewTrip extends StatelessWidget {
                                     ),
                                     child:  TextFormField(
                                       style:
-                                          TextStyle(color: Color(0xff303b7d),),
+                                          const TextStyle(color: Color(0xff303b7d),),
                                       initialValue: '0',
+                                      keyboardType: TextInputType.number,
                                       decoration: const InputDecoration(
                                         border: InputBorder.none,
                                         suffixIcon: Text(
@@ -209,9 +225,10 @@ class NewTrip extends StatelessWidget {
                                     ),
                                     child:  TextFormField(
                                       style:
-                                          TextStyle(color: Color(0xff303b7d)),
+                                          const TextStyle(color: Color(0xff303b7d)),
                                       initialValue: '1',
-                                      decoration: InputDecoration(
+                                      keyboardType: TextInputType.number,
+                                      decoration: const InputDecoration(
                                         border: InputBorder.none,
                                       ),
                                     ),
@@ -267,37 +284,33 @@ class NewTrip extends StatelessWidget {
                                     style: TextStyle(color: Color(0xff303b7d)),
                                   ),
                                   Container(
-                                    width: 172,
-                                    height: 38,
-                                    padding: const EdgeInsets.only(right: 10),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(5),
-                                      color: const Color(0xfff1f1f1),
-                                    ),
-                                    child: TextField(
-                                      style: const TextStyle(
-                                          color: Color(0xff303b7d)),
-                                      decoration: InputDecoration(
-                                          border: InputBorder.none,
-                                          hintText: 'تحديد مدينة',
-                                          suffixIcon: IconButton(
-                                            padding: const EdgeInsets.only(
-                                                bottom: 10),
-                                            icon: const Icon(
-                                              Icons
-                                                  .keyboard_arrow_down_outlined,
-                                              size: 30,
-                                              color: Color(0xff303b7d),
+                                      width: 172,
+                                      height: 38,
+                                    padding: const EdgeInsets.only(bottom: 10),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(5),
+                                        color: const Color(0xfff1f1f1),
+                                      ),
+                                    child: Row(
+                                      children: [
+                                        Expanded(
+                                          child: TextFormField(
+                                            enabled: false,
+                                            decoration: const InputDecoration(
+                                              border: InputBorder.none,
                                             ),
-                                            onPressed: () {
-                                              showModalBottomSheet(
-                                                  context: context,
-                                                  builder: (context) =>
-                                                      const CitiesSheet());
-                                            },
-                                          )),
-                                    ),
-                                  ),
+                                            controller: city
+                                          ),
+                                        ),
+                                        IconButton(icon: const Icon(Icons.keyboard_arrow_down_outlined), onPressed: (){
+                                                      showModalBottomSheet(
+                                                          context: context,
+                                                          builder: (context) =>
+                                                              const CitiesSheet());
+                                        },),
+
+                                      ],
+                                    ),)
                                 ],
                               ),
                             ],
@@ -312,31 +325,31 @@ class NewTrip extends StatelessWidget {
                           Container(
                             width: double.infinity,
                             height: 38,
-                            padding: const EdgeInsets.all(10),
+                            padding: const EdgeInsets.only(bottom: 10),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
                               color: const Color(0xfff1f1f1),
                             ),
-                            child: TextField(
-                              style: const TextStyle(color: Color(0xff303b7d)),
-                              decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  suffixIcon: IconButton(
-                                    padding: const EdgeInsets.only(bottom: 10),
-                                    onPressed: () {
-                                      showModalBottomSheet(
-                                        isScrollControlled: true,
-                                          context: context,
-                                          builder: (context) => const MSheet());
-                                    },
-                                    icon: const Icon(
-                                      Icons.keyboard_arrow_down_outlined,
-                                      size: 30,
-                                      color: Color(0xff303b7d),
-                                    ),
-                                  )),
-                            ),
-                          ),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: TextFormField(
+                                      enabled: false,
+                                      decoration: const InputDecoration(
+                                        border: InputBorder.none,
+                                      ),
+                                      controller: marca
+                                  ),
+                                ),
+                                IconButton(icon: const Icon(Icons.keyboard_arrow_down_outlined), onPressed: (){
+                                  showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      context: context,
+                                      builder: (context) => const MSheet());
+                                },),
+
+                              ],
+                            ),),
                           const SizedBox(
                             height: 20,
                           ),

@@ -96,7 +96,7 @@ class _CitiesSheetState extends State<CitiesSheet> {
 
               GestureDetector(
                 onTap: () {
-                  Navigator.of(context, rootNavigator: true).pop();
+                  Navigator.pop(context);
                 },
                 child: Container(
                   width: double.infinity,
@@ -122,48 +122,36 @@ class _CitiesSheetState extends State<CitiesSheet> {
     );
   }
 
-  RadioListTile<int> cities(
+  GestureDetector cities(
     int value,
     String title,
   ) {
-    return RadioListTile(
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              color: Color(0xff303b7d),
-              fontSize: 15,
-            ),
-          ),
-        ],
-      ),
-      value: value,
-      groupValue: val,
-      onChanged: (value) {
-        setState(() {
-          val = int.parse("$value");
-        });
+    return GestureDetector(
+      onTap: (){
       },
-      activeColor: const Color(0xff303b7d),
+      child: RadioListTile(
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              title,
+              style: const TextStyle(
+                color: Color(0xff303b7d),
+                fontSize: 15,
+              ),
+            ),
+          ],
+        ),
+        value: value,
+        groupValue: val,
+        onChanged: (value) {
+          setState(() {
+            val = int.parse("$value");
+          });
+        },
+        activeColor: const Color(0xff303b7d),
+      ),
     );
   }
-
-
-// RadioListTile buildRadioListTile(val, txt, ){
-//   return RadioListTile(
-//     title: Text(txt,style: const TextStyle(color: Color(0xff303b7d)),),
-//       value: val,
-//       groupValue: _radioValue,
-//       onChanged: (value){
-//     setState(() {
-//       _radioValue=value;
-//     });
-//       });
-//
-//
-// }
-
 
 }

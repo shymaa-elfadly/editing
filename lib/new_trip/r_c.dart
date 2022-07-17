@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
 class textformfield_ extends StatelessWidget {
+  final VoidCallback? onpressed;
+  final bool? enabled;
   final TextEditingController controller;
   final ValueChanged? on_change;
   const textformfield_({
+    this.enabled=true,
+    this.onpressed,
     required this.controller,
     this.on_change,
     Key? key}) : super(key: key);
@@ -18,14 +22,25 @@ class textformfield_ extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.only(left: 20, right: 20),
-        child: TextFormField(
-          decoration: InputDecoration(
-            prefixIcon: Text("sar") ,
-            border: InputBorder.none,
-          ),
-          controller: controller,
-          onChanged: on_change,
+        child: Container(
+          width: 500,
+          child: Row(
+            children: [
+              Expanded(
+                child: TextFormField(
+                  enabled: enabled,
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                  ),
+                  controller: controller,
+                  onChanged: on_change,
 
+                ),
+              ),
+              IconButton(icon: Icon(Icons.keyboard_arrow_down_outlined), onPressed: onpressed,),
+
+            ],
+          ),
         ),
       ),
     );
