@@ -5,6 +5,7 @@ import 'package:updatte/new_trip/screen_20_f2.dart';
 import 'package:updatte/new_trip/screen_21_f2.dart';
 
 import 'marsa_sheet.dart';
+
 var marca = TextEditingController();
 var city = TextEditingController();
 var section = TextEditingController();
@@ -17,7 +18,6 @@ class NewTrip extends StatefulWidget {
 }
 
 class _NewTripState extends State<NewTrip> {
-
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -101,8 +101,7 @@ class _NewTripState extends State<NewTrip> {
                               borderRadius: BorderRadius.circular(5),
                               color: const Color(0xfff1f1f1),
                             ),
-
-                            child:  TextFormField(
+                            child: TextFormField(
                               style: const TextStyle(color: Color(0xff303b7d)),
                               decoration: const InputDecoration(
                                 border: InputBorder.none,
@@ -144,12 +143,14 @@ class _NewTripState extends State<NewTrip> {
                                     controller: section,
                                   ),
                                 ),
-                                IconButton(icon: const Icon(Icons.keyboard_arrow_down_outlined), onPressed: (){},),
-
+                                IconButton(
+                                  icon: const Icon(
+                                      Icons.keyboard_arrow_down_outlined),
+                                  onPressed: () {},
+                                ),
                               ],
-                          ),),
-
-
+                            ),
+                          ),
                           const SizedBox(
                             height: 20,
                           ),
@@ -182,9 +183,10 @@ class _NewTripState extends State<NewTrip> {
                                       borderRadius: BorderRadius.circular(5),
                                       color: const Color(0xfff1f1f1),
                                     ),
-                                    child:  TextFormField(
-                                      style:
-                                          const TextStyle(color: Color(0xff303b7d),),
+                                    child: TextFormField(
+                                      style: const TextStyle(
+                                        color: Color(0xff303b7d),
+                                      ),
                                       initialValue: '0',
                                       keyboardType: TextInputType.number,
                                       decoration: const InputDecoration(
@@ -223,9 +225,9 @@ class _NewTripState extends State<NewTrip> {
                                       borderRadius: BorderRadius.circular(5),
                                       color: const Color(0xfff1f1f1),
                                     ),
-                                    child:  TextFormField(
-                                      style:
-                                          const TextStyle(color: Color(0xff303b7d)),
+                                    child: TextFormField(
+                                      style: const TextStyle(
+                                          color: Color(0xff303b7d)),
                                       initialValue: '1',
                                       keyboardType: TextInputType.number,
                                       decoration: const InputDecoration(
@@ -284,33 +286,36 @@ class _NewTripState extends State<NewTrip> {
                                     style: TextStyle(color: Color(0xff303b7d)),
                                   ),
                                   Container(
-                                      width: 172,
-                                      height: 38,
+                                    width: 172,
+                                    height: 38,
                                     padding: const EdgeInsets.only(bottom: 10),
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(5),
-                                        color: const Color(0xfff1f1f1),
-                                      ),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color: const Color(0xfff1f1f1),
+                                    ),
                                     child: Row(
                                       children: [
                                         Expanded(
                                           child: TextFormField(
-                                            enabled: false,
-                                            decoration: const InputDecoration(
-                                              border: InputBorder.none,
-                                            ),
-                                            controller: city
-                                          ),
+                                              enabled: false,
+                                              decoration: const InputDecoration(
+                                                border: InputBorder.none,
+                                              ),
+                                              controller: city),
                                         ),
-                                        IconButton(icon: const Icon(Icons.keyboard_arrow_down_outlined), onPressed: (){
-                                                      showModalBottomSheet(
-                                                          context: context,
-                                                          builder: (context) =>
-                                                              const CitiesSheet());
-                                        },),
-
+                                        IconButton(
+                                          icon: const Icon(Icons
+                                              .keyboard_arrow_down_outlined),
+                                          onPressed: () {
+                                            showModalBottomSheet(
+                                                context: context,
+                                                builder: (context) =>
+                                                    const CitiesSheet());
+                                          },
+                                        ),
                                       ],
-                                    ),)
+                                    ),
+                                  )
                                 ],
                               ),
                             ],
@@ -338,18 +343,21 @@ class _NewTripState extends State<NewTrip> {
                                       decoration: const InputDecoration(
                                         border: InputBorder.none,
                                       ),
-                                      controller: marca
-                                  ),
+                                      controller: marca),
                                 ),
-                                IconButton(icon: const Icon(Icons.keyboard_arrow_down_outlined), onPressed: (){
-                                  showModalBottomSheet(
-                                      isScrollControlled: true,
-                                      context: context,
-                                      builder: (context) => const MSheet());
-                                },),
-
+                                IconButton(
+                                  icon: const Icon(
+                                      Icons.keyboard_arrow_down_outlined),
+                                  onPressed: () {
+                                    showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        context: context,
+                                        builder: (context) => const MSheet());
+                                  },
+                                ),
                               ],
-                            ),),
+                            ),
+                          ),
                           const SizedBox(
                             height: 20,
                           ),
@@ -417,7 +425,6 @@ class _NewTripState extends State<NewTrip> {
                                       GestureDetector(
                                         onTap: () {
                                           showModalBottomSheet(
-
                                               context: context,
                                               builder: (context) =>
                                                   const screen_20_f2());
@@ -790,12 +797,6 @@ class _NewTripState extends State<NewTrip> {
                                                   ),
                                                 ),
                                               ),
-                                              // Positioned(
-                                              //   left: 10,
-                                              //   top: 9,
-                                              //   child: Container(),
-                                              //
-                                              //   ),
                                             ],
                                           ),
                                         ),
@@ -820,10 +821,14 @@ class _NewTripState extends State<NewTrip> {
                             begin: Alignment.bottomCenter,
                             end: Alignment.topCenter,
                             colors: [Color(0xffeb970c), Color(0xffffac26)],
-
                           ),
                         ),
                         child: OutlinedButton(
+
+                          style: ButtonStyle(
+                            shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0))),
+                          ),
+                            
                             onPressed: () {},
                             child: const Text(
                               'ارسال',
