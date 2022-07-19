@@ -72,10 +72,25 @@ class _CitiesSheetState extends State<CitiesSheet> {
                       ),
                       onPressed: () {},
                     ),
-                    border: InputBorder.none,
+                    border: InputBorder.none ,
                   ),
+          ),
+              ),
+
+              Padding(
+                padding: const EdgeInsets.only(top: 15.0),
+                child: Container(
+                  height: 1,
+                  width: double.infinity,
+                  color: Colors.grey,
                 ),
               ),
+
+              // const Padding(
+              //   padding: EdgeInsets.only(top: 10.0),
+              //   child: Divider(color: Colors.grey,
+              //   ),
+              // ),
               Container(
                 width: double.infinity,
                 height: 5*65,
@@ -89,7 +104,7 @@ class _CitiesSheetState extends State<CitiesSheet> {
                     separatorBuilder: (context, index) => Container(
                           height: 1,
                           width: double.infinity,
-                          color: Colors.grey,
+                      color: Colors.grey,
                         ),
                     itemCount: cities_list_search.length),
               ),
@@ -129,27 +144,30 @@ class _CitiesSheetState extends State<CitiesSheet> {
     return GestureDetector(
       onTap: (){
       },
-      child: RadioListTile(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              title,
-              style: const TextStyle(
-                color: Color(0xff303b7d),
-                fontSize: 15,
+      child: Container(
+        color: Colors.white,
+        child: RadioListTile(
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                  color: Color(0xff303b7d),
+                  fontSize: 15,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
+          value: value,
+          groupValue: val,
+          onChanged: (value) {
+            setState(() {
+              val = int.parse("$value");
+            });
+          },
+          activeColor: const Color(0xff303b7d),
         ),
-        value: value,
-        groupValue: val,
-        onChanged: (value) {
-          setState(() {
-            val = int.parse("$value");
-          });
-        },
-        activeColor: const Color(0xff303b7d),
       ),
     );
   }
