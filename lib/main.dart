@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:updatte/new_trip/admin/home10.dart';
+import 'package:updatte/new_trip/admin/home5.dart';
+import 'package:updatte/new_trip/admin/home7.dart';
+import 'package:updatte/new_trip/admin/home8.dart';
+import 'package:updatte/new_trip/admin/home9.dart';
 import 'package:updatte/new_trip/new_trip.dart';
 
 void main() {
@@ -12,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: NewTrip(),
+      home: Home10(),
     );
   }
 }

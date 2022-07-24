@@ -824,11 +824,12 @@ class _NewTripState extends State<NewTrip> {
                           ),
                         ),
                         child: OutlinedButton(
-
-                          style: ButtonStyle(
-                            shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0))),
-                          ),
-                            
+                            style: ButtonStyle(
+                              shape: MaterialStateProperty.all(
+                                  RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(30.0))),
+                            ),
                             onPressed: () {},
                             child: const Text(
                               'ارسال',
